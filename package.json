@@ -1,0 +1,22 @@
+{
+  "name": "task1",
+  "version": "1.0.0",
+  "description": "build a rest api to perform CURD operations on users",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Himanshu Verma",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "node": "^20.5.1",
+    "node-modules": "^1.0.1",
+    "validator": "^13.11.0"
+  }
+}
