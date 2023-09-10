@@ -26,6 +26,11 @@ const userSchema = new mongoose.Schema({
       },
       message: "Password and Confirm Password is not same",
     },
+    active: {
+      type: Boolean,
+      default: true,
+      select: false,
+    },
   },
 });
 // bcypt the password before saving it into database
