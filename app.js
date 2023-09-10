@@ -26,13 +26,13 @@ app.post(
     const jwtexpire = "12h";
     const payload = { id: newuser._id };
     const token = jwt.sign(payload, jwtsecret, { expiresIn: jwtexpire });
-    // res.status(201).json({
-    //   status: "Suceess",
-    //   token: token,
-    //   message: "User is successfully created",
-    //   user: newuser,
-    // });
-    res.redirect("/signup");
+    res.status(201).json({
+      status: "Suceess",
+      token: token,
+      message: "User is successfully created",
+      user: newuser,
+    });
+    // res.redirect("/signup");
   })
 );
 app.get("/login", (req, res) => {
@@ -55,12 +55,12 @@ app.post(
     const jwtexpire = "12h";
     const payload = { id: user._id };
     const token = jwt.sign(payload, jwtsecret, { expiresIn: jwtexpire });
-    // res.status(200).json({
-    //   stauts: "success",
-    //   token: token,
-    //   message: "User is successfully loggedin !!!!",
-    // });
-    res.redirect("/login");
+    res.status(200).json({
+      stauts: "success",
+      token: token,
+      message: "User is successfully loggedin !!!!",
+    });
+    // res.redirect("/login");
   })
 );
 app.delete(
