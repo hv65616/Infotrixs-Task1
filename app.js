@@ -47,10 +47,7 @@ app.post(
       return next(new apperror("Please enter your email or password", 400));
     }
     const user = await User.findOne({ email }).select("+password");
-    const correctpassword = await user.correctPassword(
-      password,
-      user.password
-    );
+    const correctpassword = await user.correctPassword(password, user.password);
     if (!user || !correctpassword) {
       return next(new apperror("Incorrect emil or password", 401));
     }
@@ -64,6 +61,17 @@ app.post(
     //   message: "User is successfully loggedin !!!!",
     // });
     res.redirect("/login");
+  })
+);
+app.delete(
+  "/delete",
+  catchasync(async (req, res) => {
+    await User.findByIdAndUpdate(req.user.id, { active: false });
+    res.status(204).json({
+      status: "success",
+      message: "Account Deleted Successfully",
+      data: null,
+    });
   })
 );
 module.exports = app;
