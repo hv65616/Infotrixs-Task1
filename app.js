@@ -63,6 +63,9 @@ app.post(
     // res.redirect("/login");
   })
 );
+app.get("/delete", (req, res) => {
+  res.sendFile(__dirname + "/frontend/delete.html");
+});
 app.delete(
   "/delete",
   catchasync(async (req, res) => {
